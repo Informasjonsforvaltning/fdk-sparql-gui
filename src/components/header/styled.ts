@@ -4,13 +4,14 @@ import LinkBase from '@fellesdatakatalog/link';
 
 import DropdownMenuBase from '@fellesdatakatalog/dropdown-menu';
 
-import LogoSVG from '../../images/fdk-logo-negative.svg';
+import LogoSVG from '../../images/fdk-logo.svg';
+import DemoLogoSVG from '../../images/fdk-logo-demo.svg';
 
 const Header = styled.header`
   display: flex;
   align-items: center;
   height: 80px;
-  background: ${theme.colour(Colour.NEUTRAL, 'N60')};
+  background: ${theme.colour(Colour.NEUTRAL, 'N0')};
   z-index: 2;
 
   @media (max-width: 900px) {
@@ -41,17 +42,11 @@ const Row = styled.div`
 `;
 
 const Logo = styled(LogoSVG)`
-  height: 55px;
+  height: 40px;
+`;
 
-  & > path {
-    fill: ${theme.colour(Colour.NEUTRAL, 'N0')};
-  }
-
-  @media (max-width: 900px) {
-    & {
-      height: calc(35px + (55 - 35) * ((100vw - 320px) / (900 - 320)));
-    }
-  }
+const DemoLogo = styled(DemoLogoSVG)`
+  height: 40px;
 `;
 
 const Link = styled(LinkBase)`
@@ -66,7 +61,7 @@ const NavigationLinks = styled.ul`
   margin-left: auto;
 
   & > li * {
-    color: ${theme.colour(Colour.NEUTRAL, 'N0')};
+    color: ${theme.colour(Colour.NEUTRAL, 'N70')};
   }
 
   & > li:nth-of-type(n + 2) {
@@ -133,6 +128,7 @@ export default {
   Header,
   Row,
   Logo,
+  DemoLogo,
   NavigationLinks,
   Link,
   DropdownMenu,

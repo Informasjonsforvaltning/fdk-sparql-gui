@@ -2,11 +2,12 @@ import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
 
 import { Trigger, Menu } from '@fellesdatakatalog/dropdown-menu';
+
 import env from '../../env';
 
 import SC from './styled';
 
-const { FDK_REGISTRATION_BASE_URI, ADMIN_GUI_BASE_URI } = env;
+const { USE_DEMO_LOGO } = env;
 
 const Header: FC = () => {
   const [isDropdownMenuOpen, setIsDropdownMenuOpen] = useState(false);
@@ -17,20 +18,20 @@ const Header: FC = () => {
   return (
     <SC.Header>
       <SC.Row>
-        <SC.Logo />
+        {USE_DEMO_LOGO ? <SC.DemoLogo /> : <SC.Logo />}
         <SC.NavigationLinks>
           <li>
-            <SC.Link href={FDK_REGISTRATION_BASE_URI}>Registrere data</SC.Link>
+            <SC.Link href='/about'>Om Felles datakatalog</SC.Link>
           </li>
           <li>
-            <SC.Link href={ADMIN_GUI_BASE_URI}>Høste data</SC.Link>
+            <SC.Link href='/organizations'>Virksomheter</SC.Link>
           </li>
           <li>
-            <SC.Link href='/publishing/terms-of-use'>Bruksvilkår</SC.Link>
+            <SC.Link href='/reports'>Rapporter</SC.Link>
           </li>
           <li>
-            <SC.Link href='/' target='_self' external>
-              Søk i Felles datakatalog
+            <SC.Link href='/publishing' target='_self' external>
+              Publisere
             </SC.Link>
           </li>
         </SC.NavigationLinks>
@@ -44,19 +45,17 @@ const Header: FC = () => {
           <Menu>
             <SC.Menu>
               <li>
-                <SC.Link href={FDK_REGISTRATION_BASE_URI}>
-                  Registrere data
-                </SC.Link>
+                <SC.Link href='/about'>Om Felles datakatalog</SC.Link>
               </li>
               <li>
-                <SC.Link href={ADMIN_GUI_BASE_URI}>Høste data</SC.Link>
+                <SC.Link href='/organizations'>Virksomheter</SC.Link>
               </li>
               <li>
-                <SC.Link href='/publishing/terms-of-use'>Bruksvilkår</SC.Link>
+                <SC.Link href='/reports'>Rapporter</SC.Link>
               </li>
               <li>
-                <SC.Link href='/' target='_self' external>
-                  Søk i Felles datakatalog
+                <SC.Link href='/publishing' target='_self' external>
+                  Publisere
                 </SC.Link>
               </li>
             </SC.Menu>
