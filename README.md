@@ -20,7 +20,7 @@ Application for executing SPARQL queries.
 - Build a Docker container using the following command:
   - `docker build -t fdk-sparql-gui .`
 - Run the container using the following comand:
-  - `docker run -d -p 8001:8080 -e ENV -e SPARQL_API_HOST -e FDK_BASE_URI -e FDK_REGISTRATION_BASE_URI -e ADMIN_GUI_BASE_URI fdk-sparql-gui`
+  - `docker run -d -p 8001:8080 -e ENV -e SPARQL_API_HOST -e USER_DEMO_LOGO fdk-sparql-gui`
 
 #### Running application using Docker Compose
 
@@ -33,9 +33,7 @@ Application for executing SPARQL queries.
   - `development`
   - `production`
 - `SPARQL_API_HOST` - Host of the SPARQL API service
-- `FDK_BASE_URI` - FDK Base URI
-- `FDK_REGISTRATION_BASE_URI` - Base URI of the FDK registration application
-- `ADMIN_GUI_BASE_URI` - Base URI of the FDK administration application
+- `USER_DEMO_LOGO` - Use demo logo (true/false)
 
 ## Contributing
 
