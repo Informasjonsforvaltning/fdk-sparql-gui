@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    ports:
+      - 8001:8080
+    environment:
+      - ENV=development
+      - SPARQL_API_HOST=http://127.0.0.1:8080
+      - FDK_BASE_URI=https://staging.fellesdatakatalog.digdir.no
+      - FDK_REGISTRATION_BASE_URI=https://registrering.fellesdatakatalog.digdir.no
+      - ADMIN_GUI_BASE_URI=https://admin.fellesdatakatalog.digdir.no
