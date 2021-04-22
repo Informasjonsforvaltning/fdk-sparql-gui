@@ -4,7 +4,11 @@ import { compose } from 'redux';
 import Yasgui from '@triply/yasgui';
 import '@triply/yasgui/build/yasgui.min.css';
 
+import env from '../../../../../../env';
+
 import SC from './styled';
+
+const { SPARQL_API_HOST } = env;
 
 interface Props {}
 
@@ -15,8 +19,15 @@ const SparqlPage: FC<Props> = () => {
     if (yasguiRef.current != null) {
       // eslint-disable-next-line no-new
       new Yasgui(yasguiRef.current as any, {
-        requestConfig: { endpoint: 'http://example.com/sparql' },
-        copyEndpointOnNewTab: false
+        requestConfig: { endpoint: SPARQL_API_HOST },
+        copyEndpointOnNewTab: false,
+        endpointCatalogueOptions: {
+          getData: () => [
+            {
+              endpoint: SPARQL_API_HOST
+            }
+          ]
+        }
       });
     }
 
