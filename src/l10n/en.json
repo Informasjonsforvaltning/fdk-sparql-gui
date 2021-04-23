@@ -1,0 +1,19 @@
+{
+  "title": "SPARQL Endpoint",
+  "lang": {
+    "chosenLanguage": "Språk",
+    "norwegian-nb": "Norsk (bokmål)",
+    "norwegian-nn": "Norsk (nynorsk)",
+    "english-en": "English"
+  },
+  "header": {
+    "about": "About",
+    "organizations": "Organizations",
+    "reports": "Reports",
+    "publishing": "Publishing"
+  },
+  "breadcrumb": {
+    "search": "Search in catalog",
+    "sparql": "SPARQL"
+  }
+}

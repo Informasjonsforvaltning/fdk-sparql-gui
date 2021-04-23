@@ -6,6 +6,8 @@ import '@triply/yasgui/build/yasgui.min.css';
 
 import env from '../../../../../../env';
 
+import Translation from '../../../../../../components/translation';
+
 import SC from './styled';
 
 const { SPARQL_API_HOST } = env;
@@ -17,8 +19,7 @@ const SparqlPage: FC<Props> = () => {
 
   useEffect(() => {
     if (yasguiRef.current != null) {
-      // eslint-disable-next-line no-new
-      new Yasgui(yasguiRef.current as any, {
+      const yasgui = new Yasgui(yasguiRef.current as any, {
         requestConfig: { endpoint: SPARQL_API_HOST },
         copyEndpointOnNewTab: false,
         endpointCatalogueOptions: {
@@ -29,6 +30,8 @@ const SparqlPage: FC<Props> = () => {
           ]
         }
       });
+
+      yasgui.rootEl;
     }
 
     return () => {};
@@ -36,8 +39,10 @@ const SparqlPage: FC<Props> = () => {
 
   return (
     <SC.SparqlPage>
-      <SC.Title>SPARQL Endepunkt</SC.Title>
-      <div ref={yasguiRef} />
+      <SC.Title>
+        <Translation id='title' />
+      </SC.Title>
+      <SC.Yasgui ref={yasguiRef} />
     </SC.SparqlPage>
   );
 };

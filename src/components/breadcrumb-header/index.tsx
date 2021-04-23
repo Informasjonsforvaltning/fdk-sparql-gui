@@ -3,6 +3,8 @@ import { compose } from 'redux';
 import { Breadcrumb } from '@fellesdatakatalog/breadcrumbs';
 import Link from '@fellesdatakatalog/link';
 
+import Translation from '../translation';
+
 import SC from './styled';
 
 const BreadcrumbHeader: FC = () => (
@@ -12,10 +14,12 @@ const BreadcrumbHeader: FC = () => (
     >
       <Breadcrumb>
         <Link href='/' target='_self'>
-          Søk i Felles datakatalog
+          <Translation id='breadcrumb.search' />
         </Link>
       </Breadcrumb>
-      <Breadcrumb active>SPARQL</Breadcrumb>
+      <Breadcrumb active>
+        <Translation id='breadcrumb.sparql' />
+      </Breadcrumb>
     </SC.Breadcrumbs>
   </SC.BreadcrumbHeader>
 );
