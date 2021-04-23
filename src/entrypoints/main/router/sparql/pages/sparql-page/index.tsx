@@ -21,7 +21,7 @@ const SparqlPage: FC<Props> = () => {
     if (yasguiRef.current != null) {
       const yasgui = new Yasgui(yasguiRef.current as any, {
         requestConfig: { endpoint: SPARQL_API_HOST },
-        copyEndpointOnNewTab: false,
+        copyEndpointOnNewTab: true,
         endpointCatalogueOptions: {
           getData: () => [
             {
