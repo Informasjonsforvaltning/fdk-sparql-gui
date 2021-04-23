@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import type { History } from 'history';
 
-import Footer from '@fellesdatakatalog/internal-footer';
+import Footer from '@fellesdatakatalog/external-footer';
 import Header from '../../../components/header';
 import BreadcrumbHeader from '../../../components/breadcrumb-header';
 import BetaTag from '../../../components/beta-tag';

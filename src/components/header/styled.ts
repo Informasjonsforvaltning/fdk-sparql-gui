@@ -86,6 +86,11 @@ const DropdownMenu = styled(DropdownMenuBase)`
   }
 `;
 
+const LanguageMenu = styled(DropdownMenuBase)`
+  display: flex;
+  margin-left: auto;
+`;
+
 const MenuButton = styled.button`
   display: flex;
   justify-content: center;
@@ -94,7 +99,6 @@ const MenuButton = styled.button`
   background: none;
   border: none;
   outline: none;
-  color: ${theme.colour(Colour.NEUTRAL, 'N0')};
   cursor: pointer;
 
   &:after {
@@ -132,6 +136,7 @@ export default {
   NavigationLinks,
   Link,
   DropdownMenu,
+  LanguageMenu,
   MenuButton,
   Menu
 };

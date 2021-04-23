@@ -8,6 +8,7 @@
       "esnext",
       "dom"
     ],
+    "allowJs": true,
     "sourceMap": true,
     "outDir": "dist",
     "esModuleInterop": true,
@@ -24,6 +25,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "types": [
       "node",
       "jest"

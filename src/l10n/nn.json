@@ -1,0 +1,19 @@
+{
+  "title": "SPARQL Endepunkt",
+  "lang": {
+    "chosenLanguage": "Language",
+    "norwegian-nb": "Norsk (bokmål)",
+    "norwegian-nn": "Norsk (nynorsk)",
+    "english-en": "English"
+  },
+  "header": {
+    "about": "Om Felles datakatalog",
+    "organizations": "Verksemder",
+    "reports": "Rapportar",
+    "publishing": "Publisere"
+  },
+  "breadcrumb": {
+    "search": "Søk i Felles datakatalog",
+    "sparql": "SPARQL"
+  }
+}
