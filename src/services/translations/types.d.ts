@@ -2,4 +2,5 @@ import { Language } from './enums';
 
 export type ChangeLanguageCallback = (language: Language) => void;
 
-export type Tokens = Record<string, string | number | undefined | null>;
+type Formatted = number | string | JSX.Element;
+type FormatObject<U extends Formatted> = { [key: string]: U };

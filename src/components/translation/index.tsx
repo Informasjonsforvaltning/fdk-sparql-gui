@@ -4,18 +4,19 @@ import { compose } from 'redux';
 import {
   withTranslations,
   Props as TranslationsProps,
-  Tokens
+  Formatted,
+  FormatObject
 } from '../../providers/translations';
 
 interface ExternalProps {
   id: string;
-  tokens?: Tokens;
+  values?: FormatObject<Formatted>;
 }
 
 interface Props extends ExternalProps, TranslationsProps {}
 
-const Translation: FC<Props> = ({ translationsService, id, tokens }) => (
-  <>{translationsService.translate(id, tokens)}</>
+const Translation: FC<Props> = ({ translationsService, id, values }) => (
+  <>{translationsService.translate(id, values)}</>
 );
 
 export default compose<FC<ExternalProps>>(memo, withTranslations)(Translation);

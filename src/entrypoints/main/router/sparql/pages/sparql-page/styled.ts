@@ -13,6 +13,8 @@ const SparqlPage = styled.article`
 `;
 
 const Title = styled.h1`
+  margin-bottom: ${theme.spacing('S48')};
+
   font-size: ${theme.fontSize('FS48')};
   font-weight: ${theme.fontWeight('FW700')};
 
