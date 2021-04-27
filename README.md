@@ -33,7 +33,7 @@ Application for executing SPARQL queries.
   - `development`
   - `production`
 - `SPARQL_API_HOST` - Host of the SPARQL API service
-- `USER_DEMO_LOGO` - Use demo logo (true/false)
+- `USE_DEMO_LOGO` - Use demo logo (true/false)
 
 ## Contributing
 
