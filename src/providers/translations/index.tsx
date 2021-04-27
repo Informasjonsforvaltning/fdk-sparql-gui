@@ -54,4 +54,4 @@ export default compose<FC>(memo, withCookies)(TranslationsProvider);
 export { withTranslations } from './hoc';
 export { Language } from '../../services/translations';
 export type { ServiceProps as Props } from './hoc';
-export type { Tokens } from '../../services/translations';
+export type { Formatted, FormatObject } from '../../services/translations';

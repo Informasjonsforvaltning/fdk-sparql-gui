@@ -1,5 +1,7 @@
 {
   "title": "SPARQL Endepunkt",
+  "intro": "Ved hjelp av dette verktøyet kan du utføra dine eigne spørjingar i {sparqlLanguage} på RDF-grafene til Felles datakatalog. Dette er det mest fleksible og kraftige alternativet for å spørja katalogen. Katalogen inneheld datasett, konsept, APIer og informasjonsmodellar.",
+  "sparqlLanguage": "SPARQL language",
   "lang": {
     "chosenLanguage": "Language",
     "norwegian-nb": "Norsk (bokmål)",

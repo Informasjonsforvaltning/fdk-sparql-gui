@@ -4,7 +4,8 @@ import nb from '../../l10n/nb.json';
 import nn from '../../l10n/nn.json';
 import en from '../../l10n/en.json';
 
-import type { ChangeLanguageCallback, Tokens } from './types';
+import type { ChangeLanguageCallback, FormatObject, Formatted } from './types';
+
 import { Language } from './enums';
 
 class TranslationsService {
@@ -32,7 +33,10 @@ class TranslationsService {
     return this.language;
   }
 
-  public translate(key: string, tokens: Tokens = {}): string {
+  public translate<T extends Formatted>(
+    key: string,
+    values?: FormatObject<T>
+  ): Array<string | T> | string {
     const translation = key
       .split('.')
       .reduce(
@@ -40,11 +44,10 @@ class TranslationsService {
         this.translations
       );
 
-    return this.translations
-      .formatString(
-        this.format(typeof translation === 'string' ? translation : key, tokens)
-      )
-      .toString();
+    return this.translations.formatString(
+      translation.toString(),
+      values as any
+    );
   }
 
   public changeLanguage(language: Language): void {
@@ -54,16 +57,8 @@ class TranslationsService {
 
     this.changeLanguageCallback?.(this.language);
   }
-
-  private format(str: string, tokens: Tokens): string {
-    return Object.entries(tokens).reduce(
-      (previous, [token, value]) =>
-        previous.replace(new RegExp(`:${token}`, 'g'), value?.toString() ?? ''),
-      str
-    );
-  }
 }
 
 export default new TranslationsService();
 export { Language } from './enums';
-export type { Tokens } from './types';
+export type { Formatted, FormatObject } from './types';
