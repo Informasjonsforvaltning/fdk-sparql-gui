@@ -1,6 +1,5 @@
 import React, { memo, FC, useState } from 'react';
 import { compose } from 'redux';
-import { Link as RouteLink } from 'react-router-dom';
 
 import { Trigger, Menu } from '@fellesdatakatalog/dropdown-menu';
 
@@ -38,9 +37,7 @@ const Header: FC<Props> = ({ translationsService }) => {
   return (
     <SC.Header>
       <SC.Row>
-        <RouteLink to='/'>
-          {USE_DEMO_LOGO ? <SC.DemoLogo /> : <SC.Logo />}
-        </RouteLink>
+        <a href='/'>{USE_DEMO_LOGO ? <SC.DemoLogo /> : <SC.Logo />}</a>
         <SC.NavigationLinks>
           <li>
             <SC.Link href='/about'>
