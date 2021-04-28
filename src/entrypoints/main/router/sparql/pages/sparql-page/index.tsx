@@ -17,26 +17,25 @@ const { SPARQL_API_HOST } = env;
 interface Props {}
 
 const SparqlPage: FC<Props> = () => {
-  const yasguiRef = useRef(null);
+  const yasguiRef = useRef<HTMLDivElement>(null);
+
+  const initSparqlGui = (root: HTMLDivElement) =>
+    new Yasgui(root, {
+      requestConfig: { endpoint: SPARQL_API_HOST },
+      copyEndpointOnNewTab: true,
+      endpointCatalogueOptions: {
+        getData: () => [
+          {
+            endpoint: SPARQL_API_HOST
+          }
+        ]
+      }
+    });
 
   useEffect(() => {
-    if (yasguiRef.current != null) {
-      const yasgui = new Yasgui(yasguiRef.current as any, {
-        requestConfig: { endpoint: SPARQL_API_HOST },
-        copyEndpointOnNewTab: true,
-        endpointCatalogueOptions: {
-          getData: () => [
-            {
-              endpoint: SPARQL_API_HOST
-            }
-          ]
-        }
-      });
-
-      yasgui.rootEl;
+    if (yasguiRef.current) {
+      initSparqlGui(yasguiRef.current);
     }
-
-    return () => {};
   }, []);
 
   return (

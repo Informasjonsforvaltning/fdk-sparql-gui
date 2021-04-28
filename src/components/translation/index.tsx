@@ -4,13 +4,12 @@ import { compose } from 'redux';
 import {
   withTranslations,
   Props as TranslationsProps,
-  Formatted,
   FormatObject
 } from '../../providers/translations';
 
 interface ExternalProps {
   id: string;
-  values?: FormatObject<Formatted>;
+  values?: FormatObject;
 }
 
 interface Props extends ExternalProps, TranslationsProps {}

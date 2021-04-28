@@ -29,7 +29,7 @@ const Header: FC<Props> = ({ translationsService }) => {
   const openLanguageMenu = () => setIsLanguageMenuOpen(true);
   const closeLanguageMenu = () => setIsLanguageMenuOpen(false);
 
-  const handleChangeLanguage = (language: Language) => {
+  const handleChangeLanguage = (language: Language) => () => {
     translationsService.changeLanguage(language);
     closeLanguageMenu();
   };
@@ -72,19 +72,19 @@ const Header: FC<Props> = ({ translationsService }) => {
               <Menu>
                 <SC.Menu>
                   <li>
-                    <SC.Link onClick={() => handleChangeLanguage(Language.NB)}>
+                    <SC.MenuButton onClick={handleChangeLanguage(Language.NB)}>
                       <Translation id='lang.norwegian-nb' />
-                    </SC.Link>
+                    </SC.MenuButton>
                   </li>
                   <li>
-                    <SC.Link onClick={() => handleChangeLanguage(Language.NN)}>
+                    <SC.MenuButton onClick={handleChangeLanguage(Language.NN)}>
                       <Translation id='lang.norwegian-nn' />
-                    </SC.Link>
+                    </SC.MenuButton>
                   </li>
                   <li>
-                    <SC.Link onClick={() => handleChangeLanguage(Language.EN)}>
+                    <SC.MenuButton onClick={handleChangeLanguage(Language.EN)}>
                       <Translation id='lang.english-en' />
-                    </SC.Link>
+                    </SC.MenuButton>
                   </li>
                 </SC.Menu>
               </Menu>
@@ -117,36 +117,36 @@ const Header: FC<Props> = ({ translationsService }) => {
                 </SC.Link>
               </li>
               <li>
-                <SC.Link href='/publishing' target='_self' external>
+                <SC.Link href='/publishing' external>
                   <Translation id='header.publishing' />
                 </SC.Link>
               </li>
               <li>
-                <SC.Link
+                <SC.MenuButton
                   onClick={() =>
                     translationsService.changeLanguage(Language.NB)
                   }
                 >
                   <Translation id='lang.norwegian-nb' />
-                </SC.Link>
+                </SC.MenuButton>
               </li>
               <li>
-                <SC.Link
+                <SC.MenuButton
                   onClick={() =>
                     translationsService.changeLanguage(Language.NN)
                   }
                 >
                   <Translation id='lang.norwegian-nn' />
-                </SC.Link>
+                </SC.MenuButton>
               </li>
               <li>
-                <SC.Link
+                <SC.MenuButton
                   onClick={() =>
                     translationsService.changeLanguage(Language.EN)
                   }
                 >
                   <Translation id='lang.english-en' />
-                </SC.Link>
+                </SC.MenuButton>
               </li>
             </SC.Menu>
           </Menu>

@@ -8,4 +8,4 @@ services:
     environment:
       - ENV=development
       - SPARQL_API_HOST=http://127.0.0.1:8080
-      - USER_DEMO_LOGO=false
+      - USE_DEMO_LOGO=false
