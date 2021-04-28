@@ -13,7 +13,7 @@ const BreadcrumbHeader: FC = () => (
       separator={<SC.BreadcrumbSeparator>{'>'}</SC.BreadcrumbSeparator>}
     >
       <Breadcrumb>
-        <Link href='/' target='_self'>
+        <Link href='/'>
           <Translation id='breadcrumb.search' />
         </Link>
       </Breadcrumb>

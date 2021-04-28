@@ -33,19 +33,9 @@ class TranslationsService {
     return this.language;
   }
 
-  public translate<T extends Formatted>(
-    key: string,
-    values?: FormatObject<T>
-  ): Array<string | T> | string {
-    const translation = key
-      .split('.')
-      .reduce(
-        (previous, current) => (previous as any)?.[current],
-        this.translations
-      );
-
+  public translate(key: string, values?: FormatObject): Formatted[] | string {
     return this.translations.formatString(
-      translation.toString(),
+      this.translations.getString(key),
       values as any
     );
   }

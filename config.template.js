@@ -1,5 +1,5 @@
 window.env = {
   ENV: '$ENV',
   SPARQL_API_HOST: '$SPARQL_API_HOST',
-  USER_DEMO_LOGO: '$USER_DEMO_LOGO'
+  USE_DEMO_LOGO: '$USE_DEMO_LOGO'
 };
