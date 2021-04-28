@@ -32,6 +32,7 @@ const Header: FC<Props> = ({ translationsService }) => {
   const handleChangeLanguage = (language: Language) => () => {
     translationsService.changeLanguage(language);
     closeLanguageMenu();
+    closeDropdownMenu();
   };
 
   return (
@@ -55,7 +56,7 @@ const Header: FC<Props> = ({ translationsService }) => {
             </SC.Link>
           </li>
           <li>
-            <SC.Link href='/publishing' target='_self' external>
+            <SC.Link href='/publishing' external>
               <Translation id='header.publishing' />
             </SC.Link>
           </li>
@@ -122,29 +123,17 @@ const Header: FC<Props> = ({ translationsService }) => {
                 </SC.Link>
               </li>
               <li>
-                <SC.ButtonItem
-                  onClick={() =>
-                    translationsService.changeLanguage(Language.NB)
-                  }
-                >
+                <SC.ButtonItem onClick={handleChangeLanguage(Language.NB)}>
                   <Translation id='lang.norwegian-nb' />
                 </SC.ButtonItem>
               </li>
               <li>
-                <SC.ButtonItem
-                  onClick={() =>
-                    translationsService.changeLanguage(Language.NN)
-                  }
-                >
+                <SC.ButtonItem onClick={handleChangeLanguage(Language.NN)}>
                   <Translation id='lang.norwegian-nn' />
                 </SC.ButtonItem>
               </li>
               <li>
-                <SC.ButtonItem
-                  onClick={() =>
-                    translationsService.changeLanguage(Language.EN)
-                  }
-                >
+                <SC.ButtonItem onClick={handleChangeLanguage(Language.EN)}>
                   <Translation id='lang.english-en' />
                 </SC.ButtonItem>
               </li>
