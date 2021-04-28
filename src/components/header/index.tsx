@@ -72,19 +72,19 @@ const Header: FC<Props> = ({ translationsService }) => {
               <Menu>
                 <SC.Menu>
                   <li>
-                    <SC.MenuButton onClick={handleChangeLanguage(Language.NB)}>
+                    <SC.ButtonItem onClick={handleChangeLanguage(Language.NB)}>
                       <Translation id='lang.norwegian-nb' />
-                    </SC.MenuButton>
+                    </SC.ButtonItem>
                   </li>
                   <li>
-                    <SC.MenuButton onClick={handleChangeLanguage(Language.NN)}>
+                    <SC.ButtonItem onClick={handleChangeLanguage(Language.NN)}>
                       <Translation id='lang.norwegian-nn' />
-                    </SC.MenuButton>
+                    </SC.ButtonItem>
                   </li>
                   <li>
-                    <SC.MenuButton onClick={handleChangeLanguage(Language.EN)}>
+                    <SC.ButtonItem onClick={handleChangeLanguage(Language.EN)}>
                       <Translation id='lang.english-en' />
-                    </SC.MenuButton>
+                    </SC.ButtonItem>
                   </li>
                 </SC.Menu>
               </Menu>
@@ -122,31 +122,31 @@ const Header: FC<Props> = ({ translationsService }) => {
                 </SC.Link>
               </li>
               <li>
-                <SC.MenuButton
+                <SC.ButtonItem
                   onClick={() =>
                     translationsService.changeLanguage(Language.NB)
                   }
                 >
                   <Translation id='lang.norwegian-nb' />
-                </SC.MenuButton>
+                </SC.ButtonItem>
               </li>
               <li>
-                <SC.MenuButton
+                <SC.ButtonItem
                   onClick={() =>
                     translationsService.changeLanguage(Language.NN)
                   }
                 >
                   <Translation id='lang.norwegian-nn' />
-                </SC.MenuButton>
+                </SC.ButtonItem>
               </li>
               <li>
-                <SC.MenuButton
+                <SC.ButtonItem
                   onClick={() =>
                     translationsService.changeLanguage(Language.EN)
                   }
                 >
                   <Translation id='lang.english-en' />
-                </SC.MenuButton>
+                </SC.ButtonItem>
               </li>
             </SC.Menu>
           </Menu>

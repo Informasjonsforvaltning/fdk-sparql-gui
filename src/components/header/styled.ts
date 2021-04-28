@@ -7,6 +7,8 @@ import DropdownMenuBase from '@fellesdatakatalog/dropdown-menu';
 import LogoSVG from '../../images/fdk-logo.svg';
 import DemoLogoSVG from '../../images/fdk-logo-demo.svg';
 
+const onMobileView = '@media (max-width: 900px)';
+
 const Header = styled.header`
   display: flex;
   align-items: center;
@@ -14,7 +16,7 @@ const Header = styled.header`
   background: ${theme.colour(Colour.NEUTRAL, 'N0')};
   z-index: 2;
 
-  @media (max-width: 900px) {
+  ${onMobileView} {
     & {
       height: calc(55px + (80 - 55) * ((100vw - 320px) / (900 - 320)));
     }
@@ -34,7 +36,7 @@ const Row = styled.div`
     }
   }
 
-  @media (max-width: 900px) {
+  ${onMobileView} {
     & {
       margin: 0 calc(12px + (32 - 12) * ((100vw - 320px) / (900 - 320)));
     }
@@ -68,7 +70,7 @@ const NavigationLinks = styled.ul`
     margin-left: ${theme.spacing('S24')};
   }
 
-  @media (max-width: 900px) {
+  ${onMobileView} {
     & {
       display: none;
     }
@@ -79,7 +81,7 @@ const DropdownMenu = styled(DropdownMenuBase)`
   display: none;
   margin-left: auto;
 
-  @media (max-width: 900px) {
+  ${onMobileView} {
     & {
       display: flex;
     }
@@ -128,6 +130,25 @@ const Menu = styled.ul`
   }
 `;
 
+const ButtonItem = styled.button`
+  width: 100%;
+  height: 100%;
+  padding: ${theme.spacing('S12')} ${theme.spacing('S16')};
+  border: none;
+  background: none;
+  text-align: left;
+  white-space: pre;
+  cursor: pointer;
+
+  &:hover {
+    background: ${theme.colour(Colour.NEUTRAL, 'N10')};
+  }
+
+  ${onMobileView} {
+    padding: 14px 28px 14px 28px;
+  }
+`;
+
 export default {
   Header,
   Row,
@@ -138,5 +159,6 @@ export default {
   DropdownMenu,
   LanguageMenu,
   MenuButton,
+  ButtonItem,
   Menu
 };

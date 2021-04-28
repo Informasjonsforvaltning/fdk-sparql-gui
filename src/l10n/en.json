@@ -1,7 +1,7 @@
 {
   "title": "SPARQL Endpoint",
-  "intro": "Using this editor, you can execute your own queries in the {sparqlLanguage} about the National Data Catalog RDF graphs. This is the most flexible and powerful option for querying the catalog containing datasets, concepts, APIs and information models.",
-  "sparqlLanguage": "SPARQL language",
+  "intro": "With this editor you're able to execute your own queries in {sparql} on the National Data Catalog RDF graphs. This is the most flexible and powerful tool for querying the catalog containing datasets, concepts, APIs and information models.",
+  "sparql": "SPARQL",
   "lang": {
     "chosenLanguage": "Språk",
     "norwegian-nb": "Norsk (bokmål)",

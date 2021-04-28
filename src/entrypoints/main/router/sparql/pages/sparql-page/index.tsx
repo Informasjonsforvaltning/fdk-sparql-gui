@@ -47,9 +47,9 @@ const SparqlPage: FC<Props> = () => {
         <Translation
           id='intro'
           values={{
-            sparqlLanguage: (
+            sparql: (
               <Link href='https://www.w3.org/TR/rdf-sparql-query/'>
-                <Translation id='sparqlLanguage' />
+                <Translation id='sparql' />
               </Link>
             )
           }}
