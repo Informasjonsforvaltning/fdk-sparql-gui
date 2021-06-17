@@ -50,6 +50,7 @@
     }
   },
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.14.5",
     "@fellesdatakatalog/breadcrumbs": "^0.2.0",
     "@fellesdatakatalog/button": "^0.2.3",
     "@fellesdatakatalog/dropdown-menu": "^0.1.3",

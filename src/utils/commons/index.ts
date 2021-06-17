@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router-dom';
 import type { EnvironmentVariables } from '../../types';
 
 function assertIsDefined<T>(
@@ -17,5 +16,3 @@ export const validateEnv = (
 
   return env;
 };
-
-export const useQuery = () => new URLSearchParams(useLocation().search);

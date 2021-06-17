@@ -9,15 +9,20 @@ import store from '../redux/store';
 
 import GlobalStyles from '../styles';
 
-import Router from '../router';
+import MainPage from '../pages';
+import SparqlPage from '../pages/sparql-page';
 
-const App: FC = () => (
+interface Props {
+  language?: any;
+}
+
+const App: FC<Props> = ({ language }) => (
   <ThemeProvider>
     <GlobalStyles />
     <CookiesProvider>
       <TranslationsProvider>
         <ReduxProvider store={store}>
-          <Router />
+          {language ? <SparqlPage language={language} /> : <MainPage />}
         </ReduxProvider>
       </TranslationsProvider>
     </CookiesProvider>
