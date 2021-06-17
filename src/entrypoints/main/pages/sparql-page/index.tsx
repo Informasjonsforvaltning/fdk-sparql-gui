@@ -6,17 +6,26 @@ import '@triply/yasgui/build/yasgui.min.css';
 
 import Link from '@fellesdatakatalog/link';
 
-import env from '../../../../../../env';
+import env from '../../../../env';
 
-import Translation from '../../../../../../components/translation';
+import Translation from '../../../../components/translation';
 
 import SC from './styled';
+import {
+  withTranslations,
+  Props as TranslationsProps
+} from '../../../../providers/translations';
 
 const { SPARQL_API_HOST } = env;
 
-interface Props {}
+interface Props {
+  language?: any;
+}
 
-const SparqlPage: FC<Props> = () => {
+const SparqlPage: FC<Props & TranslationsProps> = ({
+  language,
+  translationsService
+}) => {
   const yasguiRef = useRef<HTMLDivElement>(null);
 
   const initSparqlGui = (root: HTMLDivElement) =>
@@ -37,6 +46,12 @@ const SparqlPage: FC<Props> = () => {
       initSparqlGui(yasguiRef.current);
     }
   }, []);
+
+  useEffect(() => {
+    if (language) {
+      translationsService.changeLanguage(language);
+    }
+  }, [language]);
 
   return (
     <SC.SparqlPage>
@@ -60,4 +75,4 @@ const SparqlPage: FC<Props> = () => {
   );
 };
 
-export default compose<FC>(memo)(SparqlPage);
+export default compose<FC<Props>>(memo, withTranslations)(SparqlPage);

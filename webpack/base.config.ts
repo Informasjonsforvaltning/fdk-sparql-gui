@@ -1,6 +1,10 @@
 import type { Configuration } from 'webpack';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ModuleFederationPlugin from 'webpack/lib/container/ModuleFederationPlugin';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const deps = require('../package.json').dependencies;
 
 const configuration: Configuration = {
   entry: {
@@ -8,14 +12,13 @@ const configuration: Configuration = {
   },
   output: {
     path: resolve(__dirname, '../dist'),
-    publicPath: '/sparql/',
+    publicPath: 'auto',
     clean: true
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   optimization: {
-    runtimeChunk: 'single',
     splitChunks: {
       hidePathInfo: true,
       chunks: 'all',
@@ -98,8 +101,21 @@ const configuration: Configuration = {
       template: './src/entrypoints/main/index.html',
       filename: 'index.html',
       favicon: './src/images/favicon.ico',
-      base: '/sparql/',
+      base: '/',
       chunks: ['main']
+    }),
+    new ModuleFederationPlugin({
+      name: 'sparql_gui',
+      library: { type: 'var', name: 'sparql_gui' },
+      filename: 'remoteEntry.js',
+      exposes: {
+        './SparqlGui': './src/entrypoints/main/app/index.tsx'
+      },
+      shared: {
+        ...deps,
+        react: { singleton: true },
+        'react-dom': { singleton: true }
+      }
     })
   ]
 };
