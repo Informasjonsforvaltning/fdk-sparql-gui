@@ -3,7 +3,6 @@ import { theme, Colour } from '@fellesdatakatalog/theme';
 
 const SparqlPage = styled.article`
   flex: 1;
-  margin-top: ${theme.spacing('S48')};
 
   @media (max-width: 1020px) {
     & {
