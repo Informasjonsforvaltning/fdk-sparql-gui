@@ -20,22 +20,24 @@ const { SPARQL_API_HOST } = env;
 
 interface Props {
   language?: any;
+  endpoint?: string;
 }
 
 const SparqlPage: FC<Props & TranslationsProps> = ({
   language,
+  endpoint,
   translationsService
 }) => {
   const yasguiRef = useRef<HTMLDivElement>(null);
 
   const initSparqlGui = (root: HTMLDivElement) =>
     new Yasgui(root, {
-      requestConfig: { endpoint: SPARQL_API_HOST },
+      requestConfig: { endpoint: endpoint ?? SPARQL_API_HOST },
       copyEndpointOnNewTab: true,
       endpointCatalogueOptions: {
         getData: () => [
           {
-            endpoint: SPARQL_API_HOST
+            endpoint: endpoint ?? SPARQL_API_HOST
           }
         ]
       }
