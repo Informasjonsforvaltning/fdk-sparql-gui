@@ -60,7 +60,7 @@
     "@fellesdatakatalog/theme": "^0.4.4",
     "@triply/yasgui": "^4.2.21",
     "buffer": "^6.0.3",
-    "core-js": "^3.23.3",
+    "core-js": "^3.24.1",
     "history": "^5.3.0",
     "immutable": "^4.1.0",
     "npm-force-resolutions": "^0.0.10",
