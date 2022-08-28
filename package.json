@@ -57,7 +57,7 @@
     "@fellesdatakatalog/dropdown-menu": "^0.1.7",
     "@fellesdatakatalog/external-footer": "^0.1.20",
     "@fellesdatakatalog/link": "^0.2.9",
-    "@fellesdatakatalog/theme": "^0.4.4",
+    "@fellesdatakatalog/theme": "^0.5.1",
     "@triply/yasgui": "^4.2.21",
     "buffer": "^6.0.3",
     "core-js": "^3.24.1",
