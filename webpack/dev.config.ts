@@ -26,8 +26,16 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
     host: '0.0.0.0',
     port: 8001,
     hot: true,
-    onBeforeSetupMiddleware: devServer =>
-      devServer.app.get('/config.js', (_, res) => res.status(204).send())
+    setupMiddlewares: (middlewares, devServer) => {
+      if (!devServer) {
+        throw new Error('webpack-dev-server is not defined');
+      }
+
+      // onBeforeSetupMiddleware
+      devServer.app?.get('/config.js', (_, res) => res.status(204).send());
+
+      return middlewares;
+    }
   },
   module: {
     rules: [
@@ -56,19 +64,15 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.svg$/,
+        test: /\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: [
           {
-            loader: 'babel-loader'
-          },
-          {
-            loader: 'react-svg-loader',
+            loader: '@svgr/webpack',
             options: {
-              jsx: true
+              typescript: true
             }
           }
-        ],
-        include: [resolve(__dirname, '..', 'src', 'images')]
+        ]
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -112,12 +116,7 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
       }
     ]
   },
-  plugins: [
-    new ReactRefreshWebpackPlugin(),
-    new ForkTsCheckerWebpackPlugin({
-      eslint: { files: './src/**/*.{tsx,ts,jsx,js,json,html}' }
-    })
-  ]
+  plugins: [new ReactRefreshWebpackPlugin(), new ForkTsCheckerWebpackPlugin()]
 });
 
 export default configuration;
