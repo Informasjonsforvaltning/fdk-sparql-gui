@@ -1,11 +1,8 @@
 import React, { FC } from 'react';
 import { CookiesProvider } from 'react-cookie';
-import { Provider as ReduxProvider } from 'react-redux';
 import ThemeProvider from '@fellesdatakatalog/theme';
 
 import TranslationsProvider from '../../../providers/translations';
-
-import store from '../redux/store';
 
 import GlobalStyles from '../styles';
 
@@ -22,13 +19,11 @@ const App: FC<Props> = ({ language, endpoint }) => (
     <GlobalStyles />
     <CookiesProvider>
       <TranslationsProvider>
-        <ReduxProvider store={store}>
-          {language ? (
-            <SparqlPage language={language} endpoint={endpoint} />
-          ) : (
-            <MainPage />
-          )}
-        </ReduxProvider>
+        {language ? (
+          <SparqlPage language={language} endpoint={endpoint} />
+        ) : (
+          <MainPage />
+        )}
       </TranslationsProvider>
     </CookiesProvider>
   </ThemeProvider>

@@ -66,9 +66,7 @@
     "@typescript-eslint/no-empty-function": [
       "error",
       {
-        "allow": [
-          "arrowFunctions"
-        ]
+        "allow": ["arrowFunctions"]
       }
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -96,6 +94,8 @@
     "react/prop-types": "off",
     "react/require-default-props": "off",
     "react/jsx-curly-newline": "off",
+    "react/jsx-no-useless-fragment": "off",
+    "react/function-component-definition": "off",
     "no-use-before-define": "off",
     "no-restricted-globals": "off",
     "no-param-reassign": "off",
@@ -117,35 +117,24 @@
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".jsx", ".tsx"]
       }
     ]
   },
   "overrides": [
     {
-      "files": [
-        "**/*.ts?(x)"
-      ],
+      "files": ["**/*.ts?(x)"],
       "rules": {
         "no-unused-expressions": "off"
       }
     },
     {
-      "files": [
-        "./test/**/*",
-        "**/__tests__/**/*.[jt]s?(x)"
-      ],
+      "files": ["./test/**/*", "**/__tests__/**/*.[jt]s?(x)"],
       "rules": {
         "no-console": [
           "error",
           {
-            "allow": [
-              "warn",
-              "error"
-            ]
+            "allow": ["warn", "error"]
           }
         ],
         "@typescript-eslint/no-non-null-assertion": "off"
