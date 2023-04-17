@@ -3,9 +3,8 @@ import 'regenerator-runtime/runtime';
 import 'whatwg-fetch';
 
 import React from 'react';
-import * as ReactDOMClient from 'react-dom/client';
+import { render } from 'react-dom';
 
 import App from './entrypoints/main/app';
 
-const root = ReactDOMClient.createRoot(document.getElementById('root')!);
-root.render(<App />);
+render(<App />, document.getElementById('root'));
