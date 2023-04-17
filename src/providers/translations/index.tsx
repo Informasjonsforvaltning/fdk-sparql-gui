@@ -44,17 +44,13 @@ const TranslationsProvider: FC<PropsWithChildren<Props>> = ({
   }, []);
 
   return isInitialised ? (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <Context.Provider value={{ service }}>{children}</Context.Provider>
   ) : (
     <></>
   );
 };
 
-export default compose<FC<PropsWithChildren<Props>>>(
-  memo,
-  withCookies
-)(TranslationsProvider);
+export default compose<FC>(memo, withCookies)(TranslationsProvider);
 export { withTranslations } from './hoc';
 export { Language } from '../../services/translations';
 export type { ServiceProps as Props } from './hoc';

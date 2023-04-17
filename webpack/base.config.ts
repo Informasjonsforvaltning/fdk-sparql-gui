@@ -1,6 +1,7 @@
-import { Configuration, container } from 'webpack';
+import type { Configuration } from 'webpack';
 import { resolve } from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ModuleFederationPlugin from 'webpack/lib/container/ModuleFederationPlugin';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const deps = require('../package.json').dependencies;
@@ -61,15 +62,19 @@ const configuration: Configuration = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.svg$/,
         use: [
           {
-            loader: '@svgr/webpack',
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'react-svg-loader',
             options: {
-              typescript: true
+              jsx: true
             }
           }
-        ]
+        ],
+        include: [resolve(__dirname, '..', 'src', 'images')]
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -99,7 +104,7 @@ const configuration: Configuration = {
       base: '/',
       chunks: ['main']
     }),
-    new container.ModuleFederationPlugin({
+    new ModuleFederationPlugin({
       name: 'sparql_gui',
       library: { type: 'var', name: 'sparql_gui' },
       filename: 'remoteEntry.js',

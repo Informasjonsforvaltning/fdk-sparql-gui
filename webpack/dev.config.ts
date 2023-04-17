@@ -26,16 +26,8 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
     host: '0.0.0.0',
     port: 8001,
     hot: true,
-    setupMiddlewares: (middlewares, devServer) => {
-      if (!devServer) {
-        throw new Error('webpack-dev-server is not defined');
-      }
-
-      // onBeforeSetupMiddleware
-      devServer.app?.get('/config.js', (_, res) => res.status(204).send());
-
-      return middlewares;
-    }
+    onBeforeSetupMiddleware: devServer =>
+      devServer.app.get('/config.js', (_, res) => res.status(204).send())
   },
   module: {
     rules: [
@@ -64,15 +56,19 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.svg(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.svg$/,
         use: [
           {
-            loader: '@svgr/webpack',
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'react-svg-loader',
             options: {
-              typescript: true
+              jsx: true
             }
           }
-        ]
+        ],
+        include: [resolve(__dirname, '..', 'src', 'images')]
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -116,7 +112,12 @@ const configuration: Configuration = mergeWithCustomize<Configuration>({
       }
     ]
   },
-  plugins: [new ReactRefreshWebpackPlugin(), new ForkTsCheckerWebpackPlugin()]
+  plugins: [
+    new ReactRefreshWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: { files: './src/**/*.{tsx,ts,jsx,js,json,html}' }
+    })
+  ]
 });
 
 export default configuration;
