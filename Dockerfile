@@ -1,4 +1,4 @@
-FROM node:16.7-alpine AS build
+FROM node:18-alpine AS build
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm set progress=false && \
