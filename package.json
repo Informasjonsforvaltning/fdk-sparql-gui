@@ -83,7 +83,7 @@
     "@commitlint/config-conventional": "^19.8.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/react": "^16.2.0",
     "@types/jest": "^26.0.24",
     "@types/react": "^17.0.40",
     "@types/react-dom": "^17.0.13",
