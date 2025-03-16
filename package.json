@@ -64,7 +64,7 @@
     "immutable": "^4.1.0",
     "npm-force-resolutions": "^0.0.10",
     "react": "^17.0.2",
-    "react-cookie": "^7.2.2",
+    "react-cookie": "^8.0.0",
     "react-dom": "^17.0.2",
     "react-localization": "^1.0.18",
     "react-redux": "^8.0.2",
